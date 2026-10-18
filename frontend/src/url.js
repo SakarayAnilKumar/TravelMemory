@@ -1,1 +1,4 @@
-export const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001";
+// Fixed code using Nginx proxy:
+export default axios.create({
+  baseURL: "/api" 
+});
