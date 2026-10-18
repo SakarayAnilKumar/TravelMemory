@@ -1,7 +1,9 @@
 import axios from "axios";
 
-export default axios.create({
-  // Use relative path so Nginx proxies requests to the backend, 
-  // or fall back to window.location.origin/api if needed
-  baseURL: process.env.REACT_APP_BACKEND_URL || "/api" 
+const API = axios.create({
+  baseURL: process.env.REACT_APP_BACKEND_URL || "/api"
 });
+
+// Provide both named and default exports so nothing breaks
+export const baseUrl = API;
+export default API;
